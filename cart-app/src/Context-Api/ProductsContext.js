@@ -30,8 +30,11 @@ export default function CartConextProvider({children}){
                     
             
 
-            setProducts(result.carts?.[1]?.products || []);
+           
 
+
+            const Products = result?.carts?.flatMap(cart => cart.products) || [];
+            setProducts(Products);
 
           }catch(err){
             console.error(err);
